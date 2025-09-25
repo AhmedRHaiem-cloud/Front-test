@@ -8,11 +8,11 @@ import { Product, CreateProductRequest, UpdateProductRequest, ApiResponse } from
   providedIn: 'root'
 })
 export class ProductService {
-  private readonly baseUrl = 'http://localhost:44365/api/products';
+  private readonly baseUrl = 'http://localhost:44371/api/products';
 
   constructor(private http: HttpClient) {}
 
-  // Récupérer tous les produits
+  // Get all products
   getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.baseUrl)
       .pipe(
@@ -20,7 +20,7 @@ export class ProductService {
       );
   }
 
-  // Récupérer un produit par ID
+  // Get a product by ID
   getProductById(id: number): Observable<Product> {
     return this.http.get<Product>(`${this.baseUrl}/${id}`)
       .pipe(
@@ -28,7 +28,7 @@ export class ProductService {
       );
   }
 
-  // Créer un nouveau produit
+  // Create a new product
   createProduct(product: CreateProductRequest): Observable<Product> {
     return this.http.post<Product>(this.baseUrl, product, {
       headers: {
@@ -40,7 +40,7 @@ export class ProductService {
       );
   }
 
-  // Modifier un produit existant
+  // Update an existing product
   updateProduct(id: number, product: UpdateProductRequest): Observable<Product> {
     return this.http.put<Product>(`${this.baseUrl}/${id}`, product, {
       headers: {
@@ -52,7 +52,7 @@ export class ProductService {
       );
   }
 
-  // Supprimer un produit
+  // Delete a product
   deleteProduct(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`)
       .pipe(
@@ -60,7 +60,7 @@ export class ProductService {
       );
   }
 
-  // Tester la connexion à la base de données
+  // Test database connection
   testConnection(): Observable<ApiResponse<any>> {
     return this.http.get<ApiResponse<any>>(`${this.baseUrl}/test-connection`)
       .pipe(
@@ -68,27 +68,27 @@ export class ProductService {
       );
   }
 
-  // Gestion des erreurs
+  // Error handling
   private handleError(error: HttpErrorResponse): Observable<never> {
-    let errorMessage = 'Une erreur inattendue s\'est produite';
+    let errorMessage = 'An unexpected error occurred';
     
     if (error.error instanceof ErrorEvent) {
-      // Erreur côté client
-      errorMessage = `Erreur: ${error.error.message}`;
+      // Client-side error
+      errorMessage = `Error: ${error.error.message}`;
     } else {
-      // Erreur côté serveur
+      // Server-side error
       if (error.error && error.error.Message) {
         errorMessage = error.error.Message;
       } else if (error.status === 404) {
-        errorMessage = 'Produit non trouvé';
+        errorMessage = 'Product not found';
       } else if (error.status === 400) {
-        errorMessage = 'Données invalides';
+        errorMessage = 'Invalid data';
       } else if (error.status === 500) {
-        errorMessage = 'Erreur serveur interne';
+        errorMessage = 'Internal server error';
       }
     }
     
-    console.error('Erreur API:', error);
+    console.error('API Error:', error);
     return throwError(() => new Error(errorMessage));
   }
 }

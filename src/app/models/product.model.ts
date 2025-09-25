@@ -2,7 +2,7 @@ export interface Product {
   Id: number;
   Name: string;
   Price: number;
-  Quantity?: number; // Optionnel car pas toujours présent dans les réponses
+  Quantity?: number; // Optional as not always present in responses
 }
 
 export interface CreateProductRequest {

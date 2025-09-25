@@ -35,7 +35,7 @@
       <form (ngSubmit)="onSubmit()" class="product-form">
         <div class="form-group">
           <label for="productName" class="form-label">
-            Nom du produit <span class="required">*</span>
+            Product Name <span class="required">*</span>
           </label>
           <input
             id="productName"
@@ -44,16 +44,16 @@
             class="form-input"
             [(ngModel)]="formData.name"
             [readonly]="isReadOnly"
-            placeholder="Entrez le nom du produit"
+            placeholder="Enter product name"
             maxlength="100"
             required
           />
-          <div class="form-hint">Maximum 100 caractères</div>
+          <div class="form-hint">Maximum 100 characters</div>
         </div>
 
         <div class="form-group">
           <label for="productPrice" class="form-label">
-            Prix <span class="required">*</span>
+            Price <span class="required">*</span>
           </label>
           <div class="price-input-container">
             <input
@@ -70,12 +70,12 @@
             />
             <span class="currency-symbol">€</span>
           </div>
-          <div class="form-hint">Prix en euros (ex: 29.99)</div>
+          <div class="form-hint">Price in euros (ex: 29.99)</div>
         </div>
 
         <div class="form-group">
           <label for="productQuantity" class="form-label">
-            Quantité <span class="required">*</span>
+            Quantity <span class="required">*</span>
           </label>
           <input
             id="productQuantity"
@@ -89,12 +89,12 @@
             step="1"
             required
           />
-          <div class="form-hint">Quantité en stock</div>
+          <div class="form-hint">Stock quantity</div>
         </div>
 
         @if (product && (mode === 'view' || mode === 'edit')) {
           <div class="form-group">
-            <label class="form-label">ID du produit</label>
+            <label class="form-label">Product ID</label>
             <div class="readonly-field">{{ product.Id }}</div>
           </div>
         }
@@ -102,11 +102,11 @@
         <div class="dialog-footer">
           @if (mode === 'view') {
             <button type="button" class="btn btn-secondary" (click)="onClose()">
-              Fermer
+              Close
             </button>
           } @else {
             <button type="button" class="btn btn-secondary" (click)="onClose()" [disabled]="isSubmitting()">
-              Annuler
+              Cancel
             </button>
             <button 
               type="submit" 
@@ -116,15 +116,15 @@
               @if (isSubmitting()) {
                 <div class="loading-spinner-small"></div>
                 @if (mode === 'create') {
-                  Création...
+                  Creating...
                 } @else {
-                  Modification...
+                  Updating...
                 }
               } @else {
                 @if (mode === 'create') {
-                  Créer le produit
+                  Create Product
                 } @else {
-                  Modifier le produit
+                  Update Product
                 }
               }
             </button>

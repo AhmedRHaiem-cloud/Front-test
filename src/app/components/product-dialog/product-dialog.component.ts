@@ -57,13 +57,13 @@ export class ProductDialogComponent implements OnInit {
   get title(): string {
     switch (this.mode) {
       case 'create':
-        return 'Ajouter un produit';
+        return 'Add Product';
       case 'edit':
-        return 'Modifier le produit';
+        return 'Edit Product';
       case 'view':
-        return 'Consulter le produit';
+        return 'View Product';
       default:
-        return 'Produit';
+        return 'Product';
     }
   }
 
@@ -79,19 +79,19 @@ export class ProductDialogComponent implements OnInit {
     console.log('onSubmit called, mode:', this.mode, 'canSubmit:', this.canSubmit);
     if (!this.canSubmit) return;
 
-    // Validation supplémentaire
+    // Additional validation
     if (this.formData.name.trim() === '') {
-      this.errorMessage.set('Le nom du produit est requis');
+      this.errorMessage.set('Product name is required');
       return;
     }
     
     if (this.formData.price < 0) {
-      this.errorMessage.set('Le prix doit être positif');
+      this.errorMessage.set('Price must be positive');
       return;
     }
     
     if (this.formData.quantity < 0) {
-      this.errorMessage.set('La quantité doit être positive');
+      this.errorMessage.set('Quantity must be positive');
       return;
     }
 
@@ -119,16 +119,16 @@ export class ProductDialogComponent implements OnInit {
         console.log('Product created successfully:', product);
         this.productCreated.emit(product);
         this.isSubmitting.set(false);
-        this.successMessage.set('Produit créé avec succès !');
+        this.successMessage.set('Product created successfully!');
         this.errorMessage.set('');
-        // Fermer automatiquement le dialogue après succès
+        // Automatically close dialog after success
         setTimeout(() => {
           this.onClose();
         }, 1500);
       },
       error: (error) => {
         console.error('Error creating product:', error);
-        this.errorMessage.set(error.message || 'Erreur lors de la création du produit');
+        this.errorMessage.set(error.message || 'Error creating product');
         this.successMessage.set('');
         this.isSubmitting.set(false);
       }
@@ -150,16 +150,16 @@ export class ProductDialogComponent implements OnInit {
         console.log('Product updated successfully:', product);
         this.productUpdated.emit(product);
         this.isSubmitting.set(false);
-        this.successMessage.set('Produit modifié avec succès !');
+        this.successMessage.set('Product updated successfully!');
         this.errorMessage.set('');
-        // Fermer automatiquement le dialogue après succès
+        // Automatically close dialog after success
         setTimeout(() => {
           this.onClose();
         }, 1500);
       },
       error: (error) => {
         console.error('Error updating product:', error);
-        this.errorMessage.set(error.message || 'Erreur lors de la modification du produit');
+        this.errorMessage.set(error.message || 'Error updating product');
         this.successMessage.set('');
         this.isSubmitting.set(false);
       }

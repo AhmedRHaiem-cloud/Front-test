@@ -46,7 +46,7 @@ export class ProductListComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error loading products:', error);
-        this.errorMessage.set(error.message || 'Erreur lors du chargement des produits');
+        this.errorMessage.set(error.message || 'Error loading products');
         this.isLoading.set(false);
       }
     });
@@ -73,7 +73,7 @@ export class ProductListComponent implements OnInit {
   onExport(): void {
     const products = this.filteredProducts();
     const csvContent = this.convertToCSV(products);
-    this.downloadCSV(csvContent, 'produits.csv');
+    this.downloadCSV(csvContent, 'products.csv');
   }
 
   onAddProduct(): void {
@@ -99,7 +99,7 @@ export class ProductListComponent implements OnInit {
 
   onDeleteProduct(product: Product): void {
     console.log('onDeleteProduct called with:', product);
-    if (confirm(`Êtes-vous sûr de vouloir supprimer le produit "${product.Name}" ?`)) {
+    if (confirm(`Are you sure you want to delete the product "${product.Name}"?`)) {
       console.log('Deleting product:', product.Id);
       this.productService.deleteProduct(product.Id).subscribe({
         next: () => {
@@ -108,7 +108,7 @@ export class ProductListComponent implements OnInit {
         },
         error: (error) => {
           console.error('Error deleting product:', error);
-          this.errorMessage.set(error.message || 'Erreur lors de la suppression');
+          this.errorMessage.set(error.message || 'Error during deletion');
         }
       });
     }
@@ -162,7 +162,7 @@ export class ProductListComponent implements OnInit {
   }
 
   private convertToCSV(products: Product[]): string {
-    const headers = ['ID', 'Nom', 'Prix', 'Quantité'];
+    const headers = ['ID', 'Name', 'Price', 'Quantity'];
     const rows = products.map(product => [
       product.Id,
       product.Name,
