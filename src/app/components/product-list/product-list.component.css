@@ -1,0 +1,386 @@
+.product-management-container {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding: 24px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Header Section */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.title-section {
+  flex: 1;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #718096;
+  margin: 0;
+  font-weight: 400;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: #2d3748;
+  color: white;
+  border: 1px solid #2d3748;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #1a202c;
+  border-color: #1a202c;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #f7fafc;
+  border-color: #cbd5e0;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+}
+
+/* Search Section */
+.search-section {
+  margin-bottom: 24px;
+}
+
+.search-container {
+  max-width: 400px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  width: 18px;
+  height: 18px;
+  color: #a0aec0;
+  stroke-width: 2;
+  z-index: 1;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 12px 12px 42px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  background-color: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+/* Table Container */
+.table-container {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.table-card {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  min-width: 800px;
+}
+
+.data-table thead {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.data-table th {
+  padding: 16px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.checkbox-column {
+  width: 40px;
+  text-align: center;
+}
+
+.checkbox-column input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.id-column {
+  width: 80px;
+  font-weight: 500;
+  color: #4a5568;
+  text-align: center;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 0.8rem;
+}
+
+.name-column {
+  font-weight: 500;
+  color: #2d3748;
+  min-width: 150px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price-column {
+  font-weight: 600;
+  color: #2d3748;
+  text-align: right;
+  width: 120px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+}
+
+.quantity-column {
+  font-weight: 600;
+  color: #2d3748;
+  text-align: center;
+  width: 100px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+}
+
+.actions-column {
+  width: 140px;
+  text-align: center;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.action-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+}
+
+.view-btn {
+  color: #4a5568;
+}
+
+.view-btn:hover {
+  background-color: #e2e8f0;
+  color: #2d3748;
+}
+
+.edit-btn {
+  color: #4a5568;
+}
+
+.edit-btn:hover {
+  background-color: #e2e8f0;
+  color: #2d3748;
+}
+
+.delete-btn {
+  color: #e53e3e;
+}
+
+.delete-btn:hover {
+  background-color: #fed7d7;
+  color: #c53030;
+}
+
+/* Loading, Error, and Empty States */
+.loading-cell,
+.error-cell,
+.empty-cell {
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: #4a5568;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e2e8f0;
+  border-top: 3px solid #3182ce;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #e53e3e;
+}
+
+.error-icon {
+  width: 32px;
+  height: 32px;
+  stroke-width: 2;
+}
+
+.empty-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #a0aec0;
+}
+
+.empty-icon {
+  width: 32px;
+  height: 32px;
+  stroke-width: 2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-management-container {
+    padding: 16px;
+  }
+  
+  .header-section {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  
+  .action-buttons {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .data-table {
+    font-size: 0.75rem;
+    min-width: 600px;
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 12px 8px;
+  }
+  
+  .name-column {
+    min-width: 120px;
+    max-width: 150px;
+  }
+  
+  .action-buttons {
+    gap: 4px;
+  }
+  
+  .action-btn {
+    width: 28px;
+    height: 28px;
+  }
+}

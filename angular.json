@@ -21,14 +21,8 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "styles": [],
+            "outputMode": "static"
           },
           "configurations": {
             "production": {
@@ -72,19 +66,20 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "tsConfig": "tsconfig.spec.json",
+            "tsConfig": "tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ]
+            "styles": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "2dc52b40-c8b3-4f88-a7f9-8c1635e5f2a2"
   }
 }
